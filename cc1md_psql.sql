@@ -1,3 +1,10 @@
+CREATE DATABASE uvv
+
+CREATE SCHEMA lojas ;
+
+CREATE USER jotas ;
+
+ALTER SCHEMA lojas OWNER TO jotas ;
 
 CREATE TABLE lojas.produtos (
                 produto_id NUMERIC(38) NOT NULL,
@@ -39,7 +46,7 @@ CREATE TABLE lojas.lojas (
                 CONSTRAINT lojas_pk PRIMARY KEY (loja_id)
 );
 COMMENT ON TABLE lojas.lojas IS 'tabela para as lojas';
-COMMENT ON COLUMN lojas.lojas.loja_id IS 'coluna para identificaçao das lojas';
+COMMENT ON COLUMN lojas.lojas.loja_id IS 'coluna para identificaÃ§ao das lojas';
 COMMENT ON COLUMN lojas.lojas.nome IS 'coluna para o nome da loja';
 COMMENT ON COLUMN lojas.lojas.endereco_web IS 'coluna para o endereco da loja';
 COMMENT ON COLUMN lojas.lojas.endereco_fisico IS 'coluna para o endereco fisico da loja';
@@ -66,7 +73,7 @@ COMMENT ON COLUMN lojas.estoques.estoque_id IS 'coluna para a identificacao do e
 COMMENT ON COLUMN lojas.estoques.loja_id IS 'coluna para a identificacao da loja';
 COMMENT ON COLUMN lojas.estoques.produto_id IS 'coluna para a identificacao do produto';
 COMMENT ON COLUMN lojas.estoques.quantidade IS 'coluna para a quantidade de produtos';
-COMMENT ON COLUMN lojas.estoques.lojas_loja_id IS 'coluna para identificaçao das lojas';
+COMMENT ON COLUMN lojas.estoques.lojas_loja_id IS 'coluna para identificaÃ§ao das lojas';
 
 
 CREATE TABLE lojas.clientes (
@@ -79,7 +86,7 @@ CREATE TABLE lojas.clientes (
                 CONSTRAINT clientes_pk PRIMARY KEY (cliente_id)
 );
 COMMENT ON TABLE lojas.clientes IS 'tabela para os clientes ';
-COMMENT ON COLUMN lojas.clientes.cliente_id IS 'identificaçao do cliente ';
+COMMENT ON COLUMN lojas.clientes.cliente_id IS 'identificaÃ§ao do cliente ';
 COMMENT ON COLUMN lojas.clientes.email IS 'coluna para colocar o email do cliente';
 COMMENT ON COLUMN lojas.clientes.nome IS 'coluna para colocar o nome do cliente';
 COMMENT ON COLUMN lojas.clientes.telefone1 IS 'coluna para colocar o primeiro telefone do cliente';
@@ -96,7 +103,7 @@ CREATE TABLE lojas.pedidos (
                 CONSTRAINT pedidos_pk PRIMARY KEY (pedido_id)
 );
 COMMENT ON TABLE lojas.pedidos IS 'tabela para os pedidos dos clientes';
-COMMENT ON COLUMN lojas.pedidos.pedido_id IS 'coluna para identificaçao do pedido do cliente';
+COMMENT ON COLUMN lojas.pedidos.pedido_id IS 'coluna para identificaÃ§ao do pedido do cliente';
 COMMENT ON COLUMN lojas.pedidos.data_hora IS 'coluna para data e hora dos pedidos';
 COMMENT ON COLUMN lojas.pedidos.cliente_id IS 'coluna para identificacao dos clientes';
 COMMENT ON COLUMN lojas.pedidos.status IS 'coluna para o status do pedido do cliente';
@@ -112,7 +119,7 @@ CREATE TABLE lojas.envios (
                 CONSTRAINT envios_pk PRIMARY KEY (envio_id)
 );
 COMMENT ON TABLE lojas.envios IS 'tabela para os envios ';
-COMMENT ON COLUMN lojas.envios.envio_id IS 'coluna para identificaçao dos envios';
+COMMENT ON COLUMN lojas.envios.envio_id IS 'coluna para identificaÃ§ao dos envios';
 COMMENT ON COLUMN lojas.envios.loja_id IS 'coluna para a identificacao da loja';
 COMMENT ON COLUMN lojas.envios.cliente_id IS 'coluna para identificacao do cliente';
 COMMENT ON COLUMN lojas.envios.endereco_entrega IS 'coluna para o endereco de entrega ';
@@ -136,7 +143,7 @@ COMMENT ON COLUMN lojas.pedidos_itens.numero_da_linha IS 'coluna para o numero d
 COMMENT ON COLUMN lojas.pedidos_itens.preco_unitario IS 'coluna para o preco da unidade';
 COMMENT ON COLUMN lojas.pedidos_itens.quantidade IS 'coluna para a quantidade de produtos';
 COMMENT ON COLUMN lojas.pedidos_itens.envio_id IS 'coluna para identificacao do envio';
-COMMENT ON COLUMN lojas.pedidos_itens.envios_envio_id IS 'coluna para identificaçao dos envios';
+COMMENT ON COLUMN lojas.pedidos_itens.envios_envio_id IS 'coluna para identificaÃ§ao dos envios';
 
 
 ALTER TABLE lojas.pedidos_itens ADD CONSTRAINT produtos_pedidos_itens_fk
