@@ -1,11 +1,21 @@
+-- aluno JOAO DAVI LOURENCO DE MELLO
+-- TURMA: CC1MD
+-- MATRICULA: 202308771
+
+
+
+-- CRIACAO DO BANCO DE DADOS E DO SCHEMA E DO USUARIO
+
 CREATE DATABASE uvv
 
 CREATE SCHEMA lojas ;
 
 CREATE USER jotas ;
 
-ALTER SCHEMA lojas OWNER TO jotas ;
+-- SETANDO O USUARIO NO SCHEMA 
 
+ALTER SCHEMA lojas OWNER TO jotas ;
+-- CRIACAO DA TABELA PRODUTOS
 CREATE TABLE lojas.produtos (
                 produto_id NUMERIC(38) NOT NULL,
                 nome VARCHAR(255) NOT NULL,
@@ -30,6 +40,7 @@ COMMENT ON COLUMN lojas.produtos.imagem_charset IS 'coluna para o charset da ima
 ';
 COMMENT ON COLUMN lojas.produtos.imagem_ultima_atualizacao IS 'coluna para ultima atualizacao da imagem';
 
+-- CRIACAO DA TABELA LOJAS
 
 CREATE TABLE lojas.lojas (
                 loja_id NUMERIC(38) NOT NULL,
@@ -59,6 +70,7 @@ COMMENT ON COLUMN lojas.lojas.logo_arquivo IS 'coluna para colocar o arquivo da 
 COMMENT ON COLUMN lojas.lojas.logo_charset IS 'coluna para o charset da logo';
 COMMENT ON COLUMN lojas.lojas.logo_ultima_atualizacao IS 'coluna para a ultima atualizacao da logo';
 
+-- CRIACAO DA TABELA ESTOQUES
 
 CREATE TABLE lojas.estoques (
                 estoque_id NUMERIC(38) NOT NULL,
@@ -75,6 +87,7 @@ COMMENT ON COLUMN lojas.estoques.produto_id IS 'coluna para a identificacao do p
 COMMENT ON COLUMN lojas.estoques.quantidade IS 'coluna para a quantidade de produtos';
 COMMENT ON COLUMN lojas.estoques.lojas_loja_id IS 'coluna para identificaçao das lojas';
 
+-- CRIACAO DA TABELA CLIENTES 
 
 CREATE TABLE lojas.clientes (
                 cliente_id NUMERIC(38) NOT NULL,
@@ -93,6 +106,7 @@ COMMENT ON COLUMN lojas.clientes.telefone1 IS 'coluna para colocar o primeiro te
 COMMENT ON COLUMN lojas.clientes.telefone2 IS 'coluna para colocar o segundo telefone do cliente';
 COMMENT ON COLUMN lojas.clientes.telefone3 IS 'coluna para o cliente colocar o terceiro telefone';
 
+-- CRIACAO DA TABELA PEDIDOS
 
 CREATE TABLE lojas.pedidos (
                 pedido_id NUMERIC(38) NOT NULL,
@@ -109,6 +123,7 @@ COMMENT ON COLUMN lojas.pedidos.cliente_id IS 'coluna para identificacao dos cli
 COMMENT ON COLUMN lojas.pedidos.status IS 'coluna para o status do pedido do cliente';
 COMMENT ON COLUMN lojas.pedidos.loja_id IS 'coluna para a identificacao da loja ';
 
+-- CRIACAO DA TABELA ENVIOS 
 
 CREATE TABLE lojas.envios (
                 envio_id NUMERIC(38) NOT NULL,
@@ -125,6 +140,7 @@ COMMENT ON COLUMN lojas.envios.cliente_id IS 'coluna para identificacao do clien
 COMMENT ON COLUMN lojas.envios.endereco_entrega IS 'coluna para o endereco de entrega ';
 COMMENT ON COLUMN lojas.envios.status IS 'coluna para o status do pedido';
 
+-- CRIACAO DA TABELA DOS ITENS PEDIDOS
 
 CREATE TABLE lojas.pedidos_itens (
                 pedido_id NUMERIC(38) NOT NULL,
