@@ -25,6 +25,8 @@ OWNER jotas
   lc_ctype = 'pt_BR.UTF-8'
   ALLOW_CONNECTIONS = TRUE;
 
+COMMENT ON DATABASE uvv IS 'Banco de dados uvv';
+
 \c "host=localhost dbname=uvv user=jotas password=guarana"
 
 CREATE SCHEMA lojas;
