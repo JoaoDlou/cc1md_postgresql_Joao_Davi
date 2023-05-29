@@ -10,11 +10,26 @@ DROP DATABASE IF EXISTS uvv ;
 
 DROP USER IF EXISTS jotas ;
 
-CREATE DATABASE uvv;
+CREATE USER jotas WITH
+ENCRYPTED password 'guarana'
+CREATEDB
+CREATEROLE
+LOGIN
+;
+
+CREATE DATABASE uvv
+OWNER jotas
+  template = template0
+  encoding = UTF8
+  lc_collate = 'pt_BR.UTF-8'
+  lc_ctype = 'pt_BR.UTF-8'
+  ALLOW_CONNECTIONS = TRUE;
+
+\c "host=localhost dbname=uvv user=jotas password=guarana"
 
 CREATE SCHEMA lojas;
 
-CREATE USER jotas;
+ALTER SCHEMA lojas OWNER TO jotas ;
 
 -- SETANDO O USUARIO NO SCHEMA
 
